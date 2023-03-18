@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "edbmod",
+  "version": "${version}",
+
+  "name": "Effiti's Debug Mod",
+  "description": "This mod adds various features to minecraft which make it easier to debug plugins running on a server",
+  "authors": [
+    "Effiti"
+  ],
+  "license": "CC0-1.0",
+  "icon": "assets/edb/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.effiti.edb.ClientMod"
+    ]
+  },
+  "mixins": [
+    "edb.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.19.3",
+    "java": ">=16",
+    "fabric-key-binding-api-v1": "*"
+  }
+}

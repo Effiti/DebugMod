@@ -1,0 +1,5 @@
+deploy.sh
+.idea
+.gradle
+build
+run
