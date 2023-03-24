@@ -23,3 +23,7 @@ At the moment only the `scoreboard` value is (poorly) implemented, allowing you 
 ### Invisible Hitboxes
 minecraft usually does not render the hitboxes of invisible entities.
 This is highly impractical, The Mod overwrites this behaviour.
+
+
+### Download
+see the releases-page for the latest build
