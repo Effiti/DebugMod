@@ -1,5 +1,6 @@
 package io.github.effiti.edb.mixin;
 
+import com.mojang.authlib.GameProfile;
 import io.github.effiti.edb.ClientMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -17,6 +18,8 @@ public abstract class ClientPlayNetworkHandlerMixin {
 
 
     @Shadow @Final private MinecraftClient client;
+
+    @Shadow @Final private GameProfile profile;
 
     @Inject(method = "onEntitySpawn", at = @At(value =  "TAIL"))
     public void onEntitySpawn(EntitySpawnS2CPacket packet, CallbackInfo ci) {
@@ -42,10 +45,9 @@ public abstract class ClientPlayNetworkHandlerMixin {
                     }
                     case UPDATE_LISTED-> {
                         ClientMod.sendMessage("received PlayerListS2CPacket: - " + (entry.profileId().toString().substring(0,5)) + "...");
-
                     }
                     case UPDATE_LATENCY, UPDATE_DISPLAY_NAME -> {
-
+                        ClientMod.sendMessage(entry.profile().getName() + " now has displayname " + entry.displayName().getString());
                     }
                     case UPDATE_GAME_MODE -> {
                         ClientMod.sendMessage("received PlayerListS2CPacket: GAMEMODE " + (entry.profileId().toString().substring(0,5)) + " -> " + entry.gameMode().getName());
