@@ -12,7 +12,7 @@ public class AnalyticsPacket implements CustomPacket{
     public final String mcVersion;
     public final String operatingSystem;
     public final UUID uuid;
-    public static final Identifier channelId = new Identifier(ClientMod.MOD_NAME, "analytics");
+    public static final Identifier channelId = Identifier.of(ClientMod.MOD_NAME, "analytics");
 
     public AnalyticsPacket(String mcVersion, String operatingSystem, UUID uuid) {
         this.mcVersion = mcVersion;
